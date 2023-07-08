@@ -37,6 +37,8 @@ button {
 #main {
     background-image: linear-gradient(#123456,#567890);
     border: dashed 2px blue;
+    padding: 0%;
+    margin: 0%;
 }
 
 .el {
