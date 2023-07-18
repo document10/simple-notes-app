@@ -1,10 +1,9 @@
-var add = document.getElementById("add")
 var clear = document.getElementById("clear")
 var help = document.getElementById("help")
 var input = document.getElementById("input")
 var disp = document.getElementById("notes")
 var notes = {}
-var i = 0
+var i = 0,touchstartX = 0,touchendX = 0,touchstartY = 0,touchendY = 0,thesholdX = 100,tresholdY = 20
 
 var addNote = () => {
     if(input.value==""){
@@ -24,6 +23,16 @@ var addNote = () => {
         if(e.code == "Delete" || el.innerHTML == "" || el.innerHTML == null)removeNote(Number(el.id))
     })
     disp.appendChild(el)
+    el.addEventListener('touchstart', e => {
+      touchstartX = e.changedTouches[0].screenX
+      touchstartY = e.changedTouches[0].screenY
+    })
+    
+    el.addEventListener('touchend', e => {
+      touchendX = e.changedTouches[0].screenX
+      touchendY = e.changedTouches[0].screenY
+      swipeHandler(el.id)
+    })
     input.value= ""
     notes[Number(el.id)]=el
     i++
@@ -38,14 +47,16 @@ var removeNote = (n) =>{
     document.getElementById(n).remove()
 }
 var showHelp = () => {
-    input.value = "Type a note in the above textbox and press the + button or Enter to add the note.Left-Click on a note and edit it.Middle-Click a note or press Delete while editing to remove it and press the X button to clear all notes.Press the ? button to show this help in the future."
+    input.value = "Type a note in the above textbox and press Enter to add the note.Left-Click on a note and edit it.Middle-Click a note or press Delete while editing to remove it.On mobile swipe a note left or right to remove it.Press the X button to clear all notes.Press the ? button to show this help in the future."
     addNote()
 }
 
+var swipeHandler = (id) => {
+    if(Math.abs(touchstartX-touchendX)>= thesholdX && Math.abs(touchstartY-touchendY)<=touchendY) removeNote(Number(id))
+    console.log(String(touchstartX - touchendX)+" "+id)
+    console.log(String(touchstartX - touchendX)+" "+id)
+}
 
-add.addEventListener("click",(e)=>{
-    addNote();
-})
 input.addEventListener("keypress",(e)=>{
     if(e.key=="Enter")addNote();
 })
@@ -58,3 +69,5 @@ help.addEventListener("click",(e)=>{
 
 showHelp()
 input.value = ""
+
+

@@ -1,5 +1,9 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    background-color: #ffffff;
+    padding: 0%;
+    margin: 0%;
 }
 
 span {
@@ -7,82 +11,85 @@ span {
     overflow: hidden;
     word-wrap: normal;
     padding: 0%;
+    margin: 0%;
     display: block;
 }
 
 button {
-    height: 30px;
-    width: 30px;
-    font-size: 25px;
+    height: 40px;
+    width: 40px;
     border: 1px solid;
-    border-radius: 10px;
     align-items: center;
+    position: relative;
+    float: right;
     padding: 0%;
-    margin: 0%;
+    margin: 1%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-}
-
-#input {
-    height: 30px;
-    width: 90%;
-    font-size: 25px;
-    border: 1px dashed green;
-    border-radius: 10px;
-    padding: 0%;
-    margin: 0%;
-}
-
-#main {
-    background-image: linear-gradient(#123456,#567890);
-    border: dashed 2px blue;
-    padding: 0%;
-    margin: 0%;
+    background-color: #000000;
 }
 
 .el {
-    font-size: 25px;
+    font-size: 30px;
     border: 1px solid black;
-    border-radius: 10px;
-    background-color: aqua;
-    width: 100%;
-    padding: 0%;
-    margin: 10px 0% 0% 0%;
+    background-color: rgb(0, 255, 255);
+    width: 96%;
+    padding: 0px;
+    margin: 2% 2% 0% 2%;
     transition: all 0.5s;
 }
 
 .el:hover {
-    background-color: white;
-    border: 2px dashed white;
-    width: 99%;
+    background-color: rgb(24, 124, 150);
+    border: 1px rgb(104, 104, 104);
+}
+
+#main {
+    padding: 0%;
+    margin: 0%;
+}
+
+#control {
+    position: fixed;
+    width: 100%;
+    height: max-content;
+    padding: 0%;
+    margin: 0%;
+}
+
+#spacer {
+    height: 100px;
+}
+
+#input {
+    height: 50px;
+    width: 96%;
+    font-size: 40px;
+    border: 5px green;
     border-radius: 5px;
-}
-
-
-#add {
-    background-image: url("add.png");
-    background-color: rgb(0, 200, 0);
-    border-color: rgb(0, 255, 100);
-    transform: none;
+    background-color: #1abd63;
+    color: #000000;
+    padding: 0px;
+    margin: 2% 2% 0px 2%;
     transition: all 0.5s;
+    align-self: center;
 }
-#add:hover{
-    transform: rotateZ(30deg);
-    border-color: #00ffb3;
-    background-color: #00aa00;
+
+#input:hover {
+    border: #00ffb3 3px;
+    background-color: #187913;
+    color: #ffffff;
 }
 
 #clear {
     background-image: url("clear.png");
     background-color: red;
     border-color: brown;
-    transform: none;
     transition: all 0.5s;
 }
 
 #clear:hover{
-    transform: rotateZ(25deg);
     border-color: black;
     background-color: rgb(127, 0, 0);
 }
@@ -91,12 +98,41 @@ button {
     background-image: url("help.png");
     background-color: cyan;
     border-color: yellow;
-    transform: none;
     transition: all 0.5s;
 }
 
 #help:hover{
-    transform: rotateZ(15deg);
     border-color: #ffffff;
     background-color: rgb(127, 255, 255);
+}
+
+@media (prefers-color-scheme: dark) {
+    
+    body{
+        color: #ffffff;
+        background-color: #252525;
+    }
+
+    .el {
+        border: 1px solid rgb(255, 255, 255);
+        background-color: rgb(220, 220, 0);
+        color: #000000;
+    }
+    
+    .el:hover {
+        background-color: rgb(150, 150, 0);
+        border: 1px rgb(0, 0, 0);
+    }
+    
+    #input {
+        border: 5px #ff00aa;
+        background-color: #000000;
+        color: #eeeeee;
+    }
+    
+    #input:hover {
+        border: #ff00cc 3px;
+        background-color: #272727;
+        color: #ffffff;
+    }
 }
